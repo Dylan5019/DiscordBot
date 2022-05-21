@@ -1,12 +1,14 @@
 const { Client, Intents, Interaction } = require ('discord.js');
 require("dotenv").config()
 
+const generateImage = require("./generateImage")
 
 // Create a New Client Instance
 const client = new Client({ 
   intents: [
     "GUILDS",
-    "GUILD_MESSAGES"
+    "GUILD_MESSAGES",
+    "GUILD_MEMBERS"
   ] 
 });
 
@@ -24,8 +26,15 @@ client.on(`messageCreate`, (message) => {
   }
 })
 
+const welcomeChannelID = "977634108123541545";
 
-
+client.on(`guildMemberAdd`, async (member) => {
+  const img = await generateImage(member);
+  member.guild.channels.cache.get(welcomeChannelID).send({
+    content: `<@${member.id}> Welcome to the Server!`,
+    files: [img]
+  })
+})
 
 
 client.login(process.env.TOKEN);
