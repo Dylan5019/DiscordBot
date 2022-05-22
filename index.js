@@ -28,6 +28,7 @@ client.loadCommands(bot, false);
 module.exports = bot;
 
 
+
 // const welcomeChannelID = "977634108123541545";
 
 // client.on(`guildMemberAdd`, async (member) => {

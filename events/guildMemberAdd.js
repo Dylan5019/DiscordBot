@@ -1,6 +1,6 @@
 const generateImage = require('../generateImage');
 
-const welcomeChannelID = "977634108123541545";
+const welcomeChannelID = "977750171133820938";
 
 module.exports = {
   name: "guildMemberAdd",

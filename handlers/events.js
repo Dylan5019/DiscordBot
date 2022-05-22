@@ -63,4 +63,5 @@ function initEvents(bot) {
     triggerEventHandler(bot, "guildMemberAdd", member);
   });
 
+
 }

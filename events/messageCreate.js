@@ -9,6 +9,17 @@ module.exports = {
 
         if(message.author.bot) return;
 
+        // Joke about Preston mispronouncing Him as Shim
+        if(message.member.id === `455183316707049507`) {
+           
+             if (message.content.toLowerCase().includes(`him`)){
+                return message.reply("It's actually Shim");
+             } else if ( message.content.toLowerCase().includes(`her`)) {
+                return message.reply("It's actually Sher");
+             }
+        }
+
+
         if(!message.content.startsWith(prefix)) return;
 
         const args = message.content.slice(prefix.length).trim().split(/ +/g);
@@ -19,6 +30,7 @@ module.exports = {
 
         let member = message.member;
 
+     
         if (command.devOnly && !owners.includes(member.id)){
             return message.reply("This command is only available to the bot owners ");
         }
